@@ -1379,6 +1379,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_water"
+version = "0.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b2daf7e2c389bede0a60f7ef979c60b7544da381eb1be795472219c10a22e983"
+dependencies = [
+ "anyhow",
+ "bevy",
+]
+
+[[package]]
 name = "bevy_window"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2379,6 +2389,7 @@ dependencies = [
  "bevy_hanabi",
  "bevy_kira_audio",
  "bevy_mod_sysfail",
+ "bevy_water",
  "bevy_xpbd_3d",
  "bevy_yarnspinner",
  "bevy_yarnspinner_example_dialogue_view",

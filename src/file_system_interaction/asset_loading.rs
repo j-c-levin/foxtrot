@@ -10,10 +10,10 @@ use iyes_progress::{ProgressCounter, ProgressPlugin};
 
 pub(crate) fn loading_plugin(app: &mut App) {
     app.add_plugins(TomlAssetPlugin::<GameConfig>::new(&["game.toml"]))
-        .add_plugins(ProgressPlugin::new(GameState::Loading).continue_to(GameState::Menu))
+        .add_plugins(ProgressPlugin::new(GameState::Loading).continue_to(GameState::Playing))
         .add_loading_state(
             LoadingState::new(GameState::Loading)
-                .continue_to_state(GameState::Menu)
+                .continue_to_state(GameState::Playing)
                 .load_collection::<AudioAssets>()
                 .load_collection::<GltfAssets>()
                 .load_collection::<TextureAssets>()

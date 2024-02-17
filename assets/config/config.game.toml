@@ -20,8 +20,8 @@ min_pitch = -80
 tracking_smoothing = 1.5
 
 [camera.third_person]
-translation_smoothing = 1.2
-rotation_smoothing = 0.5
+translation_smoothing = 0.2
+rotation_smoothing = 0.3
 tracking_smoothing = 1.0
 max_pitch = 80
 min_pitch = -80

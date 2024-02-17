@@ -17,28 +17,29 @@ pub(crate) fn update_kind(
         let zoom = actions.clamped_value(CameraAction::Zoom);
         let zoomed_out = zoom < -1e-5;
         let zoomed_in = zoom > 1e-5;
-        let new_kind = match camera.kind {
-            IngameCameraKind::FirstPerson if zoomed_out => Some(IngameCameraKind::ThirdPerson),
-            IngameCameraKind::ThirdPerson
-                if camera.desired_distance < config.camera.third_person.min_distance + 1e-5
-                    && zoomed_in =>
-            {
-                Some(IngameCameraKind::FirstPerson)
-            }
-            IngameCameraKind::ThirdPerson
-                if camera.desired_distance > config.camera.third_person.max_distance - 1e-5
-                    && zoomed_out =>
-            {
-                Some(IngameCameraKind::FixedAngle)
-            }
-            IngameCameraKind::FixedAngle
-                if camera.desired_distance < config.camera.fixed_angle.min_distance + 1e-5
-                    && zoomed_in =>
-            {
-                Some(IngameCameraKind::ThirdPerson)
-            }
-            _ => None,
-        };
+        let new_kind = Some(IngameCameraKind::ThirdPerson);
+        //     match camera.kind {
+        //     IngameCameraKind::FirstPerson if zoomed_out => Some(IngameCameraKind::ThirdPerson),
+        //     IngameCameraKind::ThirdPerson
+        //         if camera.desired_distance < config.camera.third_person.min_distance + 1e-5
+        //             && zoomed_in =>
+        //     {
+        //         Some(IngameCameraKind::FirstPerson)
+        //     }
+        //     IngameCameraKind::ThirdPerson
+        //         if camera.desired_distance > config.camera.third_person.max_distance - 1e-5
+        //             && zoomed_out =>
+        //     {
+        //         Some(IngameCameraKind::FixedAngle)
+        //     }
+        //     IngameCameraKind::FixedAngle
+        //         if camera.desired_distance < config.camera.fixed_angle.min_distance + 1e-5
+        //             && zoomed_in =>
+        //     {
+        //         Some(IngameCameraKind::ThirdPerson)
+        //     }
+        //     _ => None,
+        // };
         if let Some(new_kind) = new_kind {
             camera.kind = new_kind;
         }
