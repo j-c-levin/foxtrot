@@ -27,6 +27,7 @@ use crate::{
 };
 use bevy::prelude::*;
 use seldom_fn_plugin::FnPluginExt;
+use crate::food::FoodPlugin;
 use crate::water::WaterBasedPlugin;
 
 pub(crate) mod bevy_config;
@@ -43,6 +44,7 @@ pub(crate) mod shader;
 pub(crate) mod util;
 pub(crate) mod world_interaction;
 mod water;
+mod food;
 
 #[derive(States, Default, Clone, Eq, PartialEq, Debug, Hash)]
 enum GameState {
@@ -89,5 +91,7 @@ impl Plugin for GamePlugin {
             .add_plugins(WaterBasedPlugin);
         #[cfg(feature = "dev")]
         app.fn_plugin(dev_plugin);
+
+        app.add_plugins(FoodPlugin);
     }
 }
