@@ -89,7 +89,7 @@ impl Plugin for GamePlugin {
             .fn_plugin(ingame_menu_plugin)
             .fn_plugin(particle_plugin)
             .add_plugins(WaterBasedPlugin);
-        #[cfg(feature = "dev")]
+        // #[cfg(feature = "dev")]
         app.fn_plugin(dev_plugin);
 
         app.add_plugins(FoodPlugin);
